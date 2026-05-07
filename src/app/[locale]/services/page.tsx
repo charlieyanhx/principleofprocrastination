@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
 import { Button } from "@/components/ui/Button";
@@ -17,6 +17,8 @@ interface ServiceCard {
 
 export default function ServicesPage() {
   const t = useTranslations("services");
+  const locale = useLocale();
+  const isZh = locale === "zh";
   const cards = t.raw("cards") as ServiceCard[];
 
   return (
@@ -40,12 +42,12 @@ export default function ServicesPage() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="text-xl font-semibold tracking-tight">
+                    <h3 className={`${isZh ? "text-xl" : "text-lg"} font-semibold tracking-tight`}>
                       {card.title}
                     </h3>
-                    <p className="text-accent text-sm mt-0.5">{card.scope}</p>
+                    <p className="text-accent text-sm mt-1">{card.scope}</p>
                   </div>
-                  <span className="ml-auto text-xs text-muted border border-border rounded-md px-2.5 py-1 shrink-0">
+                  <span className="ml-auto text-xs text-muted border border-border rounded-md px-3 py-1 shrink-0">
                     {card.timeline}
                   </span>
                 </div>

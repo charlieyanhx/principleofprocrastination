@@ -1,38 +1,33 @@
 # Image Licenses
 
-All images sourced from Wikimedia Commons under Creative Commons licenses permitting commercial use.
+All images sourced from Unsplash under the Unsplash License (free for commercial and non-commercial use, no attribution required).
 
-## tinguely-stravinsky-fountain.jpg
-- **Artwork:** *Fontaine Stravinsky* by Jean Tinguely & Niki de Saint Phalle, 1983
-- **Location:** Place Igor-Stravinsky, Paris
-- **Photographer:** Jorge Láscar
-- **License:** CC BY 2.0
-- **Source:** https://commons.wikimedia.org/wiki/File:Place_Stravinsky_and_La_Fontaine_Stravinsky_(22266007749).jpg
+## brutalist-1.jpg
+- **Subject:** Symmetrical view of concrete brutalist architecture against sky
+- **Photographer:** Mike Hindle
+- **Source:** https://unsplash.com/photos/rEtsek-3HFk
+- **License:** Unsplash License
 
-## serra-fulcrum.jpg
-- **Artwork:** *Fulcrum* by Richard Serra, 1987
-- **Location:** Broadgate, London
-- **Photographer:** Matt Brown
-- **License:** CC BY 2.0
-- **Source:** https://commons.wikimedia.org/wiki/File:Richard_Serra%27s_self-supporting_Fulcrum_2022-06-29.jpg
+## brutalist-2.jpg
+- **Subject:** Interior concrete architecture, brutalist structure
+- **Photographer:** Unsplash contributor
+- **Source:** https://unsplash.com/photos/7WQlCMzGGI8
+- **License:** Unsplash License
 
-## horn-estel-ferit.jpg
-- **Artwork:** *L'Estel ferit* (The Wounded Star) by Rebecca Horn, 1992
-- **Location:** Paseo Marítimo de la Barceloneta, Barcelona
-- **Photographer:** Canaan
-- **License:** CC BY-SA 3.0
-- **Source:** https://commons.wikimedia.org/wiki/File:L%27Estel_ferit,_Rebecca_Horn.JPG
+## brutalist-4.jpg
+- **Subject:** Concrete brutalist architecture with large columns
+- **Photographer:** Unsplash contributor
+- **Source:** https://unsplash.com/photos/p7vMzekHXrU
+- **License:** Unsplash License
 
-## chung-performance.jpg
-- **Artwork:** *Of Art and Artifice* performance by Sougwen Chung, 2012
-- **Event:** Ghostly International
-- **Photographer:** Incase
-- **License:** CC BY 2.0
-- **Source:** https://commons.wikimedia.org/wiki/File:Ghostly_International_-_Of_Art_and_Artifice_-_Sougwen_Chung_(8009760640).jpg
+## brutalist-5.jpg
+- **Subject:** Modern brutalist architecture with concrete textures and ceiling lights
+- **Photographer:** Creative Hina By.Quileen
+- **Source:** https://unsplash.com/photos/0I0lfvXvOhw
+- **License:** Unsplash License
 
-## mehretu-howl-eon.jpg
-- **Artwork:** *HOWL, eon (I, II)* by Julie Mehretu, 2017
-- **Location:** San Francisco Museum of Modern Art (SFMOMA)
-- **Photographer:** GualdimG
-- **License:** CC BY-SA 4.0
-- **Source:** https://commons.wikimedia.org/wiki/File:HOWL,_eon_(I,_II),_by_Julie_Mehretu,_SFMOMA_01.jpg
+## concrete-texture.jpg
+- **Subject:** Concrete wall texture close-up
+- **Photographer:** Ingmar
+- **Source:** https://unsplash.com/photos/v8o8Fvxxnto
+- **License:** Unsplash License

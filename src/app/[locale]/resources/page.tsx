@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Divider } from "@/components/ui/Divider";
+import { MarkdownBody } from "@/components/ui/MarkdownBody";
 
 interface ResourceItem {
   slug: string;
@@ -83,6 +84,8 @@ const columnIcons: Record<ColumnId, React.ReactNode> = {
 
 export default function ResourcesPage() {
   const t = useTranslations("resources");
+  const locale = useLocale();
+  const isZh = locale === "zh";
   const items = t.raw("items") as ResourceItem[];
   const [activeColumn, setActiveColumn] = useState<ColumnId | null>(null);
   const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
@@ -164,7 +167,7 @@ export default function ResourcesPage() {
                       {columnIcons[id]}
                     </span>
                     {count > 0 && (
-                      <span className="text-[10px] text-muted ml-auto">
+                      <span className="text-xs text-muted ml-auto">
                         {count}
                       </span>
                     )}
@@ -196,7 +199,7 @@ export default function ResourcesPage() {
             className="max-w-5xl mx-auto px-6 pb-24"
           >
             <div className="flex items-baseline gap-4 pt-8 pb-4">
-              <h2 className="text-2xl font-semibold tracking-tight">
+              <h2 className={`${isZh ? "text-2xl" : "text-xl"} font-semibold tracking-tight`}>
                 {getColumnInfo(activeColumn).title}
               </h2>
               <span className="text-xs text-muted">
@@ -289,7 +292,7 @@ function ArticleRow({
           )}
 
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-3 mb-1.5">
+            <div className="flex items-center gap-3 mb-2">
               {columnTitle && (
                 <span className="text-xs text-accent font-medium uppercase tracking-[0.1em]">
                   {columnTitle}
@@ -312,7 +315,7 @@ function ArticleRow({
           <motion.div
             animate={{ rotate: isExpanded ? 45 : 0 }}
             transition={{ duration: 0.2 }}
-            className="w-5 h-5 flex items-center justify-center text-muted group-hover:text-accent transition-colors shrink-0 mt-1.5"
+            className="w-5 h-5 flex items-center justify-center text-muted group-hover:text-accent transition-colors shrink-0 mt-2"
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
               <line x1="6" y1="0.5" x2="6" y2="11.5" />
@@ -332,14 +335,7 @@ function ArticleRow({
             className="overflow-hidden"
           >
             <div className={`pb-10 ${index !== undefined ? "pl-13 md:pl-14" : ""} pr-10`}>
-              {item.body.split("\n\n").map((p, pi) => (
-                <p
-                  key={pi}
-                  className="text-foreground/80 text-[15px] leading-[1.85] mb-5 last:mb-0"
-                >
-                  {p}
-                </p>
-              ))}
+              <MarkdownBody text={item.body} />
 
               {nextArticle && onNext && (
                 <div className="mt-8 pt-5 border-t border-border/40">

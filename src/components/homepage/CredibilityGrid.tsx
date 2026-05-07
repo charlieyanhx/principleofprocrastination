@@ -1,12 +1,14 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
 import { CrosshairMark, ConcentricMark, SectionCutMark } from "@/components/visuals/BlueprintWatermarks";
 
 export function CredibilityGrid() {
   const t = useTranslations("home.institution");
+  const locale = useLocale();
+  const isZh = locale === "zh";
   const resources = t.raw("resources") as Array<{
     title: string;
     body: string;
@@ -20,7 +22,7 @@ export function CredibilityGrid() {
         </p>
 
         <FadeUp>
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-12 max-w-2xl">
+          <h2 className={`${isZh ? "text-3xl md:text-4xl" : "text-2xl md:text-3xl"} font-semibold tracking-tight mb-12 max-w-2xl`}>
             {t("title")}
           </h2>
         </FadeUp>
@@ -28,7 +30,7 @@ export function CredibilityGrid() {
         {/* Authority statement — full width, left accent border */}
         <FadeUp delay={0.1}>
           <div className="border-l-2 border-accent pl-8 md:pl-10 mb-16 max-w-3xl">
-            <h3 className="text-xl md:text-2xl font-semibold mb-4">
+            <h3 className={`${isZh ? "text-xl md:text-2xl" : "text-lg md:text-xl"} font-semibold mb-4`}>
               {t("authority.subtitle")}
             </h3>
             <p className="text-muted text-base md:text-lg leading-relaxed">

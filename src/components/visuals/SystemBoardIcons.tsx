@@ -1,337 +1,203 @@
 "use client";
 
-/* -----------------------------------------------------------------------
- * SystemBoardIcons – three 48×48 animated mechanical SVG icons inspired
- * by Arthur Ganson's kinetic sculptures.
- *
- * Pure SVG + CSS keyframe animation. No JS animation loop.
- * Designed for dark backgrounds: white strokes at 40% opacity, gold pivots.
- * ----------------------------------------------------------------------- */
-
 const STROKE = "rgba(255,255,255,0.4)";
 const GOLD = "#b98b55";
 
 // ---------------------------------------------------------------------------
-// 1. GearTrainIcon – three interlocking gears in a row
+// 1. SignalAggregateIcon – three input streams merging into one output
+//    Maps to: 信号智能体 — aggregates data from multiple systems
 // ---------------------------------------------------------------------------
 
-function gearPath(cx: number, cy: number, r: number, teeth: number): string {
-  // Build a gear outline: a circle with rectangular teeth protruding outward.
-  const inner = r - 1.2;
-  const outer = r + 1.2;
-  const segments: string[] = [];
-  for (let i = 0; i < teeth; i++) {
-    const a0 = (Math.PI * 2 * i) / teeth;
-    const a1 = a0 + (Math.PI * 2) / teeth / 3;
-    const a2 = a1 + (Math.PI * 2) / teeth / 3;
-    const a3 = a2 + (Math.PI * 2) / teeth / 3;
-    segments.push(
-      `${i === 0 ? "M" : "L"} ${cx + inner * Math.cos(a0)} ${cy + inner * Math.sin(a0)}`,
-      `L ${cx + outer * Math.cos(a1)} ${cy + outer * Math.sin(a1)}`,
-      `L ${cx + outer * Math.cos(a2)} ${cy + outer * Math.sin(a2)}`,
-      `L ${cx + inner * Math.cos(a3)} ${cy + inner * Math.sin(a3)}`,
-    );
-  }
-  segments.push("Z");
-  return segments.join(" ");
-}
-
-const GEAR_R = 7;
-const GEAR_TEETH = 8;
-const GEAR_SPACING = GEAR_R * 2 + 1.6; // slight overlap so teeth mesh
-
 export function GearTrainIcon({ className }: { className?: string }) {
-  const cx = 24;
-  const cy = 24;
-  const leftCx = cx - GEAR_SPACING;
-  const rightCx = cx + GEAR_SPACING;
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 48 48"
-      width={48}
-      height={48}
+      width={64}
+      height={64}
       className={className}
-      aria-label="Gear train icon"
+      aria-label="Signal aggregation icon"
     >
       <style>{`
-        @keyframes gear-cw {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
+        @keyframes stream-flow {
+          0%   { stroke-dashoffset: 20; }
+          100% { stroke-dashoffset: 0; }
         }
-        @keyframes gear-ccw {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(-360deg); }
+        @keyframes pulse-out {
+          0%   { stroke-dashoffset: 16; }
+          100% { stroke-dashoffset: 0; }
         }
-        .gear-mid  { animation: gear-cw  4s linear infinite; }
-        .gear-side { animation: gear-ccw 4s linear infinite; }
+        @keyframes node-pulse {
+          0%, 100% { r: 3; opacity: 0.6; }
+          50%      { r: 4; opacity: 1; }
+        }
+        .stream-in  { animation: stream-flow 2s linear infinite; }
+        .stream-out { animation: pulse-out 2s linear infinite; }
+        .merge-node { animation: node-pulse 2s ease-in-out infinite; }
       `}</style>
 
-      {/* Middle gear */}
-      <g className="gear-mid" style={{ transformOrigin: `${cx}px ${cy}px` }}>
-        <path
-          d={gearPath(cx, cy, GEAR_R, GEAR_TEETH)}
-          fill="none"
-          stroke={STROKE}
-          strokeWidth={1}
-        />
-      </g>
+      {/* Three input streams converging to center node */}
+      <line x1={4} y1={12} x2={22} y2={24}
+        stroke={STROKE} strokeWidth={1}
+        strokeDasharray="3 2" className="stream-in"
+        style={{ animationDelay: "0s" }} />
+      <line x1={4} y1={24} x2={22} y2={24}
+        stroke={STROKE} strokeWidth={1}
+        strokeDasharray="3 2" className="stream-in"
+        style={{ animationDelay: "0.3s" }} />
+      <line x1={4} y1={36} x2={22} y2={24}
+        stroke={STROKE} strokeWidth={1}
+        strokeDasharray="3 2" className="stream-in"
+        style={{ animationDelay: "0.6s" }} />
 
-      {/* Left gear */}
-      <g className="gear-side" style={{ transformOrigin: `${leftCx}px ${cy}px` }}>
-        <path
-          d={gearPath(leftCx, cy, GEAR_R, GEAR_TEETH)}
-          fill="none"
-          stroke={STROKE}
-          strokeWidth={1}
-        />
-      </g>
+      {/* Input dots */}
+      <circle cx={4} cy={12} r={1.5} fill={STROKE} />
+      <circle cx={4} cy={24} r={1.5} fill={STROKE} />
+      <circle cx={4} cy={36} r={1.5} fill={STROKE} />
 
-      {/* Right gear */}
-      <g className="gear-side" style={{ transformOrigin: `${rightCx}px ${cy}px` }}>
-        <path
-          d={gearPath(rightCx, cy, GEAR_R, GEAR_TEETH)}
-          fill="none"
-          stroke={STROKE}
-          strokeWidth={1}
-        />
-      </g>
+      {/* Center merge node */}
+      <circle cx={24} cy={24} r={3} fill={GOLD} className="merge-node" />
 
-      {/* Pivot dots */}
-      <circle cx={leftCx} cy={cy} r={1.5} fill={GOLD} />
-      <circle cx={cx} cy={cy} r={1.5} fill={GOLD} />
-      <circle cx={rightCx} cy={cy} r={1.5} fill={GOLD} />
+      {/* Output stream */}
+      <line x1={26} y1={24} x2={44} y2={24}
+        stroke={GOLD} strokeWidth={1.5}
+        strokeDasharray="4 2" className="stream-out" />
+
+      {/* Output arrow */}
+      <path d="M 41 21 L 44 24 L 41 27" fill="none" stroke={GOLD} strokeWidth={1} />
     </svg>
   );
 }
 
 // ---------------------------------------------------------------------------
-// 2. CamMechanismIcon – rotating egg-cam with vertical follower
+// 2. DecisionRouterIcon – input hits a junction, switch toggles between paths
+//    Maps to: 决策智能体 — routes approvals, surfaces anomalies
 // ---------------------------------------------------------------------------
 
 export function CamMechanismIcon({ className }: { className?: string }) {
-  const cx = 24;
-  const cy = 28;
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 48 48"
-      width={48}
-      height={48}
+      width={64}
+      height={64}
       className={className}
-      aria-label="Cam mechanism icon"
+      aria-label="Decision router icon"
     >
       <style>{`
-        @keyframes cam-rotate {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
+        @keyframes switch-toggle {
+          0%, 40%   { transform: rotate(0deg); }
+          50%, 90%  { transform: rotate(-30deg); }
+          100%      { transform: rotate(0deg); }
         }
-        @keyframes follower-bounce {
-          0%   { transform: translateY(0); }
-          25%  { transform: translateY(-7px); }
-          50%  { transform: translateY(-3px); }
-          75%  { transform: translateY(-8px); }
-          100% { transform: translateY(0); }
+        @keyframes path-a-glow {
+          0%, 40%   { stroke: ${GOLD}; opacity: 1; }
+          50%, 90%  { stroke: rgba(255,255,255,0.4); opacity: 0.5; }
+          100%      { stroke: ${GOLD}; opacity: 1; }
         }
-        .cam-body     { animation: cam-rotate 4s linear infinite; }
-        .cam-follower { animation: follower-bounce 4s ease-in-out infinite; }
+        @keyframes path-b-glow {
+          0%, 40%   { stroke: rgba(255,255,255,0.4); opacity: 0.5; }
+          50%, 90%  { stroke: ${GOLD}; opacity: 1; }
+          100%      { stroke: rgba(255,255,255,0.4); opacity: 0.5; }
+        }
+        .switch-arm   { animation: switch-toggle 3s ease-in-out infinite; }
+        .route-a      { animation: path-a-glow 3s ease-in-out infinite; }
+        .route-b      { animation: path-b-glow 3s ease-in-out infinite; }
       `}</style>
 
-      {/* Guide rail */}
-      <line
-        x1={cx}
-        y1={4}
-        x2={cx}
-        y2={22}
-        stroke={STROKE}
-        strokeWidth={0.5}
-        strokeDasharray="1.5 1.5"
-      />
+      {/* Input line */}
+      <line x1={4} y1={24} x2={20} y2={24}
+        stroke={STROKE} strokeWidth={1} />
 
-      {/* Rotating egg-shaped cam */}
-      <g className="cam-body" style={{ transformOrigin: `${cx}px ${cy}px` }}>
-        <ellipse
-          cx={cx}
-          cy={cy - 1.5}
-          rx={6}
-          ry={9}
-          fill="none"
-          stroke={STROKE}
-          strokeWidth={1}
-        />
-      </g>
+      {/* Junction node */}
+      <circle cx={22} cy={24} r={3} fill={GOLD} />
 
-      {/* Follower assembly */}
-      <g className="cam-follower">
-        {/* Follower bar */}
-        <rect
-          x={cx - 4}
-          y={14}
-          width={8}
-          height={2.5}
-          rx={0.5}
-          fill="none"
-          stroke={STROKE}
-          strokeWidth={1}
-        />
-        {/* Follower stem */}
-        <line
-          x1={cx}
-          y1={8}
-          x2={cx}
-          y2={14}
-          stroke={STROKE}
-          strokeWidth={1}
-        />
-        {/* Top contact pad */}
-        <rect
-          x={cx - 2.5}
-          y={6}
-          width={5}
-          height={2}
-          rx={0.5}
-          fill="none"
-          stroke={STROKE}
-          strokeWidth={1}
-        />
-      </g>
+      {/* Switch arm (toggles direction) */}
+      <line x1={22} y1={24} x2={34} y2={24}
+        stroke={GOLD} strokeWidth={1.5}
+        className="switch-arm"
+        style={{ transformOrigin: "22px 24px" }} />
 
-      {/* Cam pivot (gold, on top) */}
-      <circle cx={cx} cy={cy} r={1.5} fill={GOLD} />
+      {/* Route A: upper path */}
+      <path d="M 25 22 Q 32 14 40 14"
+        fill="none" strokeWidth={1} className="route-a" />
+      <circle cx={42} cy={14} r={2} fill="none" stroke={GOLD} strokeWidth={1} className="route-a" />
+
+      {/* Route B: lower path */}
+      <path d="M 25 26 Q 32 34 40 34"
+        fill="none" strokeWidth={1} className="route-b" />
+      <circle cx={42} cy={34} r={2} fill="none" stroke={GOLD} strokeWidth={1} className="route-b" />
+
+      {/* Labels: small ticks at endpoints */}
+      <line x1={42} y1={12} x2={42} y2={10} stroke={STROKE} strokeWidth={0.5} />
+      <line x1={42} y1={36} x2={42} y2={38} stroke={STROKE} strokeWidth={0.5} />
     </svg>
   );
 }
 
 // ---------------------------------------------------------------------------
-// 3. PistonIcon – slider-crank: rotating wheel + connecting rod + piston
+// 3. ExecuteBroadcastIcon – center node sends pulses to multiple endpoints
+//    Maps to: 执行智能体 — triggers downstream processes across teams/systems
 // ---------------------------------------------------------------------------
 
 export function PistonIcon({ className }: { className?: string }) {
-  // Wheel center
-  const wcx = 14;
-  const wcy = 24;
-  const wheelR = 7;
-  // Crank pin offset from wheel center
-  const crankR = 5;
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 48 48"
-      width={48}
-      height={48}
+      width={64}
+      height={64}
       className={className}
-      aria-label="Piston icon"
+      aria-label="Execution broadcast icon"
     >
       <style>{`
-        @keyframes wheel-spin {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
+        @keyframes broadcast-pulse {
+          0%   { stroke-dashoffset: 12; opacity: 0; }
+          20%  { opacity: 1; }
+          100% { stroke-dashoffset: 0; opacity: 0.6; }
         }
-        @keyframes piston-slide {
-          0%   { transform: translateX(5px); }
-          50%  { transform: translateX(-5px); }
-          100% { transform: translateX(5px); }
+        @keyframes ring-expand {
+          0%   { r: 5; opacity: 0.6; }
+          100% { r: 12; opacity: 0; }
         }
-        @keyframes rod-motion {
-          0%   { transform: translateX(5px) rotate(-8deg); }
-          25%  { transform: translateX(0px) rotate(4deg); }
-          50%  { transform: translateX(-5px) rotate(8deg); }
-          75%  { transform: translateX(0px) rotate(-4deg); }
-          100% { transform: translateX(5px) rotate(-8deg); }
-        }
-        .piston-wheel  { animation: wheel-spin   4s linear infinite; }
-        .piston-head   { animation: piston-slide  4s ease-in-out infinite; }
-        .piston-rod    { animation: rod-motion    4s ease-in-out infinite; }
+        .bc-line-0 { animation: broadcast-pulse 2s ease-out infinite; animation-delay: 0s; }
+        .bc-line-1 { animation: broadcast-pulse 2s ease-out infinite; animation-delay: 0.25s; }
+        .bc-line-2 { animation: broadcast-pulse 2s ease-out infinite; animation-delay: 0.5s; }
+        .bc-line-3 { animation: broadcast-pulse 2s ease-out infinite; animation-delay: 0.75s; }
+        .bc-line-4 { animation: broadcast-pulse 2s ease-out infinite; animation-delay: 1.0s; }
+        .bc-ring   { animation: ring-expand 2s ease-out infinite; }
       `}</style>
 
-      {/* Wheel */}
-      <g className="piston-wheel" style={{ transformOrigin: `${wcx}px ${wcy}px` }}>
-        <circle
-          cx={wcx}
-          cy={wcy}
-          r={wheelR}
-          fill="none"
-          stroke={STROKE}
-          strokeWidth={1}
-        />
-        {/* Spokes */}
-        {[0, 60, 120].map((deg) => {
-          const rad = (deg * Math.PI) / 180;
-          return (
-            <line
-              key={deg}
-              x1={wcx - (wheelR - 1) * Math.cos(rad)}
-              y1={wcy - (wheelR - 1) * Math.sin(rad)}
-              x2={wcx + (wheelR - 1) * Math.cos(rad)}
-              y2={wcy + (wheelR - 1) * Math.sin(rad)}
-              stroke={STROKE}
-              strokeWidth={0.5}
-            />
-          );
-        })}
-        {/* Crank pin */}
-        <circle
-          cx={wcx + crankR}
-          cy={wcy}
-          r={1}
-          fill={GOLD}
-        />
-      </g>
+      {/* Center source node */}
+      <circle cx={14} cy={24} r={3.5} fill={GOLD} />
 
-      {/* Connecting rod */}
-      <g
-        className="piston-rod"
-        style={{ transformOrigin: `${wcx + crankR}px ${wcy}px` }}
-      >
-        <line
-          x1={wcx + crankR}
-          y1={wcy}
-          x2={36}
-          y2={wcy}
-          stroke={STROKE}
-          strokeWidth={1}
-        />
-      </g>
+      {/* Expanding ring pulse */}
+      <circle cx={14} cy={24} r={5} fill="none"
+        stroke={GOLD} strokeWidth={0.8} className="bc-ring" />
 
-      {/* Piston head */}
-      <g className="piston-head">
-        <rect
-          x={34}
-          y={wcy - 4}
-          width={8}
-          height={8}
-          rx={1}
-          fill="none"
-          stroke={STROKE}
-          strokeWidth={1}
-        />
-        {/* Piston wrist pin */}
-        <circle cx={34} cy={wcy} r={1} fill={GOLD} />
-      </g>
+      {/* Broadcast lines to 5 endpoints */}
+      <line x1={17} y1={24} x2={42} y2={10}
+        stroke={GOLD} strokeWidth={1}
+        strokeDasharray="3 2" className="bc-line-0" />
+      <line x1={17} y1={24} x2={44} y2={18}
+        stroke={GOLD} strokeWidth={1}
+        strokeDasharray="3 2" className="bc-line-1" />
+      <line x1={17} y1={24} x2={44} y2={24}
+        stroke={GOLD} strokeWidth={1}
+        strokeDasharray="3 2" className="bc-line-2" />
+      <line x1={17} y1={24} x2={44} y2={30}
+        stroke={GOLD} strokeWidth={1}
+        strokeDasharray="3 2" className="bc-line-3" />
+      <line x1={17} y1={24} x2={42} y2={38}
+        stroke={GOLD} strokeWidth={1}
+        strokeDasharray="3 2" className="bc-line-4" />
 
-      {/* Guide rails */}
-      <line
-        x1={30}
-        y1={wcy - 6}
-        x2={46}
-        y2={wcy - 6}
-        stroke={STROKE}
-        strokeWidth={0.5}
-      />
-      <line
-        x1={30}
-        y1={wcy + 6}
-        x2={46}
-        y2={wcy + 6}
-        stroke={STROKE}
-        strokeWidth={0.5}
-      />
-
-      {/* Wheel pivot (gold, on top) */}
-      <circle cx={wcx} cy={wcy} r={1.5} fill={GOLD} />
+      {/* Endpoint nodes */}
+      <circle cx={42} cy={10} r={1.5} fill={STROKE} />
+      <circle cx={44} cy={18} r={1.5} fill={STROKE} />
+      <circle cx={44} cy={24} r={1.5} fill={STROKE} />
+      <circle cx={44} cy={30} r={1.5} fill={STROKE} />
+      <circle cx={42} cy={38} r={1.5} fill={STROKE} />
     </svg>
   );
 }

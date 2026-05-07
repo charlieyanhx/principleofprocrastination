@@ -1,11 +1,14 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
+import { ScatteredSignalsIcon, TangledRoutesIcon, ManualHandoffIcon } from "@/components/visuals/ProblemIcons";
 
 export function ProblemFraming() {
   const t = useTranslations("home.problem");
+  const locale = useLocale();
+  const isZh = locale === "zh";
   const items = t.raw("items") as string[];
 
   return (
@@ -18,13 +21,18 @@ export function ProblemFraming() {
         </FadeUp>
       </div>
 
-      {/* Desktop: staggered grid */}
+      {/* Desktop: staggered grid with animated icons */}
       <div className="hidden lg:block">
         <StaggerGroup className="max-w-6xl mx-auto px-6 flex gap-6">
           {items.map((item: string, i: number) => (
             <StaggerItem key={i} className="flex-1">
               <div className="border-t-2 border-accent pt-6">
-                <p className="text-lg font-medium leading-relaxed text-foreground">
+                <div className="mb-4">
+                  {i === 0 && <ScatteredSignalsIcon />}
+                  {i === 1 && <TangledRoutesIcon />}
+                  {i === 2 && <ManualHandoffIcon />}
+                </div>
+                <p className={`${isZh ? "text-lg" : "text-base"} font-medium leading-relaxed text-foreground`}>
                   {item}
                 </p>
               </div>
@@ -33,13 +41,18 @@ export function ProblemFraming() {
         </StaggerGroup>
       </div>
 
-      {/* Mobile: horizontal scroll */}
+      {/* Mobile: horizontal scroll with animated icons */}
       <div className="lg:hidden">
         <div className="overflow-x-auto flex gap-4 px-6 snap-x snap-mandatory">
           {items.map((item: string, i: number) => (
             <FadeUp key={i} delay={i * 0.1}>
               <div className="min-w-[300px] snap-center border-t-2 border-accent pt-6">
-                <p className="text-lg font-medium leading-relaxed text-foreground">
+                <div className="mb-4">
+                  {i === 0 && <ScatteredSignalsIcon />}
+                  {i === 1 && <TangledRoutesIcon />}
+                  {i === 2 && <ManualHandoffIcon />}
+                </div>
+                <p className={`${isZh ? "text-lg" : "text-base"} font-medium leading-relaxed text-foreground`}>
                   {item}
                 </p>
               </div>

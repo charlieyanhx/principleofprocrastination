@@ -7,8 +7,8 @@ import { useRef } from "react";
 interface ArtDividerProps {
   src: string;
   alt: string;
-  artist: string;
-  title: string;
+  artist?: string;
+  title?: string;
   year?: string;
   /** Photographer name for CC attribution */
   photographer?: string;

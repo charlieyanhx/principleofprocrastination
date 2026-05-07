@@ -1,3 +1,7 @@
+"use client";
+
+import { useLocale } from "next-intl";
+
 interface SectionHeadingProps {
   eyebrow?: string;
   title: string;
@@ -13,6 +17,8 @@ export function SectionHeading({
   className = "",
   align = "left",
 }: SectionHeadingProps) {
+  const locale = useLocale();
+  const isZh = locale === "zh";
   const centered = align === "center";
 
   return (
@@ -22,12 +28,18 @@ export function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight">
+      <h2
+        className={
+          isZh
+            ? "text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight"
+            : "text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight leading-tight"
+        }
+      >
         {title}
       </h2>
       {body && (
         <p
-          className={`text-lg text-muted mt-6 max-w-2xl ${centered ? "mx-auto" : ""}`}
+          className={`${isZh ? "text-lg" : "text-base"} text-muted mt-6 max-w-2xl ${centered ? "mx-auto" : ""}`}
         >
           {body}
         </p>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
 import { Link } from "@/i18n/navigation";
@@ -21,6 +21,8 @@ const linkHrefs = ["/services", "/resources", "/about"] as const;
 
 export function SystemBoard() {
   const t = useTranslations("home.system");
+  const locale = useLocale();
+  const isZh = locale === "zh";
   const columns = t.raw("columns") as Column[];
   const links = t.raw("links") as LinkCard[];
 
@@ -34,13 +36,13 @@ export function SystemBoard() {
         </FadeUp>
 
         <FadeUp delay={0.1}>
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4">
+          <h2 className={`${isZh ? "text-3xl md:text-4xl" : "text-2xl md:text-3xl"} font-semibold tracking-tight mb-4`}>
             {t("title")}
           </h2>
         </FadeUp>
 
         <FadeUp delay={0.15}>
-          <p className="text-surface-dark-muted text-lg mb-16 max-w-2xl">
+          <p className={`text-surface-dark-muted ${isZh ? "text-lg" : "text-base"} mb-16 max-w-2xl`}>
             {t("body")}
           </p>
         </FadeUp>

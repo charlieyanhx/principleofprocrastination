@@ -180,21 +180,13 @@ export function FilmReelDecor({ className }: { className?: string }) {
           strokeOpacity={0.3}
           fill="none"
         />
-        {[0, 120, 240].map((angle) => {
-          const rad = (angle * Math.PI) / 180;
-          return (
-            <line
-              key={angle}
-              x1={110 + 6 * Math.cos(rad)}
-              y1={48 + 6 * Math.sin(rad)}
-              x2={110 + 22 * Math.cos(rad)}
-              y2={48 + 22 * Math.sin(rad)}
-              stroke="#e5e5e5"
-              strokeWidth={1}
-              strokeOpacity={0.3}
-            />
-          );
-        })}
+        {[
+          { a: 0, x1: 116, y1: 48, x2: 132, y2: 48 },
+          { a: 120, x1: 107, y1: 53.2, x2: 99, y2: 67.05 },
+          { a: 240, x1: 107, y1: 42.8, x2: 99, y2: 28.95 },
+        ].map((t) => (
+          <line key={t.a} x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2} stroke="#e5e5e5" strokeWidth={1} strokeOpacity={0.3} />
+        ))}
       </g>
       {/* Right reel */}
       <g className="reel-right">
@@ -216,21 +208,13 @@ export function FilmReelDecor({ className }: { className?: string }) {
           strokeOpacity={0.3}
           fill="none"
         />
-        {[0, 120, 240].map((angle) => {
-          const rad = (angle * Math.PI) / 180;
-          return (
-            <line
-              key={angle}
-              x1={290 + 6 * Math.cos(rad)}
-              y1={48 + 6 * Math.sin(rad)}
-              x2={290 + 22 * Math.cos(rad)}
-              y2={48 + 22 * Math.sin(rad)}
-              stroke="#e5e5e5"
-              strokeWidth={1}
-              strokeOpacity={0.3}
-            />
-          );
-        })}
+        {[
+          { a: 0, x1: 296, y1: 48, x2: 312, y2: 48 },
+          { a: 120, x1: 287, y1: 53.2, x2: 279, y2: 67.05 },
+          { a: 240, x1: 287, y1: 42.8, x2: 279, y2: 28.95 },
+        ].map((t) => (
+          <line key={t.a} x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2} stroke="#e5e5e5" strokeWidth={1} strokeOpacity={0.3} />
+        ))}
       </g>
       {/* Film strip between reels */}
       <line

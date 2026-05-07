@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -23,6 +23,8 @@ interface OfficeLocation {
 
 export default function AboutPage() {
   const t = useTranslations("about");
+  const locale = useLocale();
+  const isZh = locale === "zh";
   const cards = t.raw("cards") as ValueCard[];
   const offices = t.raw("offices") as {
     label: string;
@@ -42,8 +44,8 @@ export default function AboutPage() {
       </section>
 
       <ArtBackground
-        src="/art/tinguely-stravinsky-fountain.jpg"
-        alt="Jean Tinguely &amp; Niki de Saint Phalle, Fontaine Stravinsky, 1983. Photo: Jorge Láscar, CC BY 2.0"
+        src="/art/brutalist-2.jpg"
+        alt="Interior brutalist concrete structure"
         opacity={0.05}
         position="center"
       >
@@ -53,7 +55,7 @@ export default function AboutPage() {
               <span className="text-xs uppercase tracking-[0.2em] text-accent font-medium mb-6 block">
                 {t("manifesto.label")}
               </span>
-              <p className="text-2xl md:text-3xl font-light leading-relaxed text-foreground">
+              <p className={`${isZh ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"} font-light leading-relaxed text-foreground`}>
                 {t("manifesto.text")}
               </p>
             </FadeUp>

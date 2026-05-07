@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
@@ -9,18 +9,20 @@ import { HeroKineticMachine } from "@/components/visuals/HeroKineticMachine";
 
 export function HeroSection() {
   const t = useTranslations("home.hero");
+  const locale = useLocale();
+  const isZh = locale === "zh";
 
   return (
     <section className="min-h-screen flex items-center relative pt-20">
-      {/* Tinguely artwork — subtle photographic texture behind the canvas animation */}
+      {/* Brutalist concrete texture — subtle industrial backdrop */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <Image
-          src="/art/tinguely-stravinsky-fountain.jpg"
-          alt="Jean Tinguely &amp; Niki de Saint Phalle, Fontaine Stravinsky, 1983. Photo: Jorge Láscar, CC BY 2.0"
+          src="/art/brutalist-1.jpg"
+          alt="Brutalist concrete architecture"
           fill
           sizes="100vw"
           priority
-          className="object-cover object-right"
+          className="object-cover"
           style={{ opacity: 0.04, filter: "grayscale(100%)" }}
         />
       </div>
@@ -34,13 +36,25 @@ export function HeroSection() {
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] mt-8">
+            <h1
+              className={
+                isZh
+                  ? "text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] mt-8"
+                  : "text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] mt-8"
+              }
+            >
               {t("title")}
             </h1>
           </FadeUp>
 
           <FadeUp delay={0.2}>
-            <p className="text-xl md:text-2xl text-muted font-light mt-8">
+            <p
+              className={
+                isZh
+                  ? "text-xl md:text-2xl text-muted font-light mt-8"
+                  : "text-lg md:text-xl text-muted font-light mt-8"
+              }
+            >
               {t("subtitle")}
             </p>
           </FadeUp>

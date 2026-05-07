@@ -11,7 +11,7 @@ export function Footer() {
       <div className="border-t border-[#e5e5e5] pt-12">
         {/* Top row */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-          <span className="text-xs uppercase tracking-widest text-[#737373]">
+          <span className="text-sm font-medium tracking-wide text-[#0a0a0a]">
             {t("brand")}
           </span>
           <p className="text-sm text-[#737373]">{t("tagline")}</p>

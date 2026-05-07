@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
@@ -26,6 +26,8 @@ interface Program {
 
 export default function AcademyPage() {
   const t = useTranslations("academy");
+  const locale = useLocale();
+  const isZh = locale === "zh";
   const programs = t.raw("programs") as Program[];
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
@@ -85,7 +87,7 @@ export default function AcademyPage() {
                     <div className="flex items-start justify-between gap-6">
                       <div className="flex-1">
                         {/* Title row */}
-                        <h3 className="text-xl md:text-2xl font-semibold tracking-tight group-hover:text-accent transition-colors">
+                        <h3 className={`${isZh ? "text-xl md:text-2xl" : "text-lg md:text-xl"} font-semibold tracking-tight group-hover:text-accent transition-colors`}>
                           {program.title}
                         </h3>
 
@@ -154,7 +156,7 @@ export default function AcademyPage() {
                                   className="flex gap-6 py-5 border-b border-border/50 last:border-b-0"
                                 >
                                   {/* Module number */}
-                                  <div className="shrink-0 w-10 pt-0.5">
+                                  <div className="shrink-0 w-10 pt-1">
                                     <span className="text-2xl font-light text-border">
                                       {String(mi + 1).padStart(2, "0")}
                                     </span>

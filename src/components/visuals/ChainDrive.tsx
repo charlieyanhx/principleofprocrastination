@@ -1,97 +1,136 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
+const GOLD = "#b98b55";
+const MUTED = "#e5e5e5";
+const NODE_R = 5;
+const LINE_WIDTH = 1.5;
+
+/** Positions of the three nodes as fractions of total height. */
+const NODE_POSITIONS = [0.25, 0.5, 0.75] as const;
+
+/**
+ * ScrollProgressLine — a vertical line that draws itself as the section
+ * scrolls into view, with gold nodes that fill at each milestone.
+ *
+ * Exported as `ChainDrive` so SolutionPath.tsx needs no changes.
+ * Automatically measures its container height.
+ */
 export function ChainDrive({
   className,
-  height = 500,
 }: {
   className?: string;
   height?: number;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [h, setH] = useState(500);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const measure = () => {
+      const rect = el.getBoundingClientRect();
+      if (rect.height > 0) setH(rect.height);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  const dashOffset = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  // Map scroll progress to how far the line has been drawn (0 → h).
+  const lineHeight = useTransform(scrollYProgress, [0.15, 0.85], [0, h]);
 
-  const sprocketY = [
-    height * 0.1,
-    height * 0.5,
-    height * 0.9,
-  ];
+  // For each node, derive an opacity for its filled state.
+  const nodeFills = NODE_POSITIONS.map((pos) => {
+    const start = 0.15 + pos * 0.7 - 0.03;
+    const end = 0.15 + pos * 0.7 + 0.03;
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    return useTransform(scrollYProgress, [start, end], [0, 1]);
+  });
 
-  const sprocketRadius = 12;
-  const teethCount = 8;
-
-  function renderSprocket(cx: number, cy: number) {
-    const teeth: React.ReactNode[] = [];
-    for (let i = 0; i < teethCount; i++) {
-      const angle = (i * 360) / teethCount;
-      const rad = (angle * Math.PI) / 180;
-      const innerR = sprocketRadius - 2;
-      const outerR = sprocketRadius + 3;
-      teeth.push(
-        <line
-          key={i}
-          x1={cx + Math.cos(rad) * innerR}
-          y1={cy + Math.sin(rad) * innerR}
-          x2={cx + Math.cos(rad) * outerR}
-          y2={cy + Math.sin(rad) * outerR}
-          stroke="#b98b55"
-          strokeWidth={2}
-          strokeLinecap="round"
-        />
-      );
-    }
-    return (
-      <g>
-        <circle
-          cx={cx}
-          cy={cy}
-          r={sprocketRadius}
-          fill="none"
-          stroke="#b98b55"
-          strokeWidth={1.5}
-        />
-        <circle cx={cx} cy={cy} r={3} fill="#b98b55" />
-        {teeth}
-      </g>
-    );
-  }
-
-  const chainPath = `M 20 ${sprocketY[0] + sprocketRadius} L 20 ${sprocketY[1] - sprocketRadius} M 20 ${sprocketY[1] + sprocketRadius} L 20 ${sprocketY[2] - sprocketRadius}`;
+  const SVG_WIDTH = 12;
+  const cx = SVG_WIDTH / 2;
 
   return (
     <div
       ref={containerRef}
       className={`hidden lg:block ${className ?? ""}`}
+      style={{ height: "100%" }}
     >
       <svg
-        viewBox={`0 0 40 ${height}`}
-        width={40}
-        height={height}
+        viewBox={`0 0 ${SVG_WIDTH} ${h}`}
+        width={SVG_WIDTH}
+        height={h}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        style={{ overflow: "visible" }}
       >
-        {/* Chain links */}
-        <motion.path
-          d={chainPath}
-          stroke="#e5e5e5"
-          strokeWidth={2}
-          strokeDasharray="6 4"
-          style={{ strokeDashoffset: dashOffset }}
-          strokeLinecap="round"
+        {/* Background track */}
+        <line
+          x1={cx}
+          y1={0}
+          x2={cx}
+          y2={h}
+          stroke={MUTED}
+          strokeWidth={LINE_WIDTH}
+          strokeOpacity={0.35}
         />
 
-        {/* Sprockets */}
-        {sprocketY.map((y, i) => (
-          <g key={i}>{renderSprocket(20, y)}</g>
-        ))}
+        {/* Gold progress line clipped to scroll progress */}
+        <defs>
+          <motion.clipPath id="chain-line-clip">
+            <motion.rect
+              x={0}
+              y={0}
+              width={SVG_WIDTH}
+              style={{ height: lineHeight }}
+            />
+          </motion.clipPath>
+        </defs>
+
+        <line
+          x1={cx}
+          y1={0}
+          x2={cx}
+          y2={h}
+          stroke={GOLD}
+          strokeWidth={LINE_WIDTH}
+          clipPath="url(#chain-line-clip)"
+        />
+
+        {/* Nodes */}
+        {NODE_POSITIONS.map((pos, i) => {
+          const cy = h * pos;
+          return (
+            <g key={i}>
+              <circle
+                cx={cx}
+                cy={cy}
+                r={NODE_R}
+                fill="none"
+                stroke={MUTED}
+                strokeWidth={LINE_WIDTH}
+              />
+              <motion.circle
+                cx={cx}
+                cy={cy}
+                r={NODE_R}
+                fill={GOLD}
+                stroke={GOLD}
+                strokeWidth={LINE_WIDTH}
+                style={{ opacity: nodeFills[i] }}
+              />
+            </g>
+          );
+        })}
       </svg>
     </div>
   );

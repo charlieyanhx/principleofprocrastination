@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { FadeUp } from "@/components/motion/FadeUp";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ChainDrive } from "@/components/visuals/ChainDrive";
@@ -14,6 +14,8 @@ const stepNumbers = ["01", "02", "03"] as const;
 
 export function SolutionPath() {
   const t = useTranslations("home.path");
+  const locale = useLocale();
+  const isZh = locale === "zh";
   const steps = t.raw("steps") as Step[];
 
   return (
@@ -34,13 +36,13 @@ export function SolutionPath() {
                 }`}
               >
                 {/* Step number */}
-                <span className="text-6xl md:text-7xl font-bold text-border/50 leading-none min-w-[80px] md:min-w-[120px] text-right">
+                <span className={`${isZh ? "text-6xl md:text-7xl" : "text-5xl md:text-6xl"} font-bold text-border/50 leading-none min-w-[80px] md:min-w-[120px] text-right`}>
                   {stepNumbers[i]}
                 </span>
 
                 {/* Step content */}
                 <div className="flex-1 pt-4">
-                  <h3 className="text-xl md:text-2xl font-semibold mb-3">
+                  <h3 className={`${isZh ? "text-xl md:text-2xl" : "text-lg md:text-xl"} font-semibold mb-3`}>
                     {step.title}
                   </h3>
                   <p className="text-muted text-base leading-relaxed max-w-2xl">

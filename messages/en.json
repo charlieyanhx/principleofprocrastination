@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Principle of Procrastination — Agentic Automation for Industry",
-    "description": "We diagnose coordination bottlenecks for industrial enterprises and build the AI agent systems that fix them. From diagnosis to production deployment."
+    "title": "Principle of Procrastination: Agentic Automation for Industry",
+    "description": "Industrial operations automated everything except coordination. We build the agent systems that finish the job."
   },
   "nav": {
     "home": "Home",
@@ -10,6 +10,7 @@
     "academy": "Academy",
     "caseStudies": "Case Studies",
     "about": "About",
+    "careers": "Careers",
     "contact": "Contact",
     "cta": "Book a Review"
   },
@@ -20,70 +21,73 @@
   },
   "footer": {
     "brand": "PRINCIPLE OF PROCRASTINATION",
-    "tagline": "Agentic automation for industrial enterprises · Consulting & implementation"
+    "tagline": "Building the coordination layer for the next era of industrial operations"
   },
   "home": {
     "hero": {
-      "eyebrow": "Agentic automation for industrial enterprises",
+      "eyebrow": "The next layer of industrial automation",
       "title": "Let Humans Be Human",
-      "subtitle": "AI agents that take over the coordination work your people shouldn't be doing",
-      "body": "Chasing status. Routing approvals. Pulling data across systems. Compiling reports by hand. Your best people spend 40-60% of their time on coordination — not because they lack effort, but because coordination methods haven't kept up with operational reality. We diagnose bottlenecks, design agent workflows, and deploy production systems.",
+      "subtitle": "The factory floor has been automated for decades. The coordination layer above it is still manual. We're changing that.",
+      "body": "Modern industrial operations run on sophisticated machinery, precision robotics, and enterprise software stacks worth millions. But between these systems sits a layer that hasn't been touched: the coordination work. Chasing status across platforms. Compiling reports the systems already contain. Routing approvals through five levels of management with context scattered across a dozen tools. Your most capable people spend 40 to 60 percent of their working hours on this. Not because they're inefficient. Because the coordination layer was never engineered. We build the agent systems that automate it.",
       "cta": {
         "primary": "Book an Operational Review",
         "secondary": "Read Our Thesis"
       }
     },
     "problem": {
-      "label": "The hidden tax",
+      "label": "The layer automation missed",
       "items": [
-        "Every morning, engineers spend two hours compiling a production status report from ERP and MES — a report the systems already know",
-        "Managers relay information between ERP, MES, and the shop floor, becoming the human API between departments",
-        "A procurement approval stalls for three days — the data needed to decide is spread across ERP, QA systems, and supplier emails, unassembled"
+        "Every morning, engineers spend two hours manually compiling a production status report by pulling numbers from ERP and MES, cross-referencing them in spreadsheets, and emailing the result to management. The data already exists in the systems. The assembly is entirely manual.",
+        "Managers sit between ERP, MES, and the shop floor, translating information from one system into the language of another, relaying decisions back, confirming receipt. They have become the human API, the living integration layer between enterprise software that was never designed to talk to each other.",
+        "A procurement approval sits untouched for three days. Not because the decision is difficult, but because the data needed to make it is fragmented across the ERP, the quality management system, supplier emails, and a shared drive. Nobody has assembled it yet. Nobody's job is to assemble it. So it waits."
       ],
-      "noteA": "Pilot-ready in 8-12 weeks",
+      "noteA": "Pilot-ready in 8 to 12 weeks",
       "noteB": "Integrates with your existing stack"
     },
     "system": {
-      "label": "Where agents fit",
-      "title": "Agent systems create the most leverage at the coordination layer",
-      "body": "Most enterprise AI operates at the analytics layer or the chat layer. The real efficiency bottleneck is the middle — how signals get aggregated, how decisions get routed, how execution gets coordinated. These handoffs happen hundreds of times a day and are still stitched together by hand. That's where agent systems create leverage.",
+      "label": "The coordination layer",
+      "title": "The architecture between your systems",
+      "body": "Every industrial operation has three layers. The execution layer: machines, robots, production lines. The data layer: ERP, MES, WMS, the systems that record what happens. And between them, the coordination layer: how signals from the data layer get aggregated into situational awareness, how decisions get routed to the right person with the right context, and how those decisions get pushed back into execution. This layer has been staffed by humans since the first factory. Agent systems are the infrastructure that replaces it.",
       "columns": [
         {
           "title": "Signal agents",
           "items": [
-            "Aggregate data from ERP, MES, WMS, and other systems in real time",
-            "Replace manual report compilation and status chasing"
+            "Pull and aggregate data from ERP, MES, WMS, quality systems, and messaging platforms continuously, not on request",
+            "Replace the morning report ritual, the status compilation spreadsheet, the \"let me check and get back to you\" delay",
+            "Produce a live operational picture that updates itself"
           ]
         },
         {
           "title": "Decision agents",
           "items": [
-            "Route approvals automatically with full context attached",
-            "Surface and classify exceptions — managers don't have to hunt"
+            "Pre-assemble the full context package for every decision: financial data, operational impact, historical precedent, risk flags",
+            "Route to the right approver with everything they need to decide in one view",
+            "Surface exceptions and anomalies before they escalate, classified by severity and recommended action"
           ]
         },
         {
           "title": "Execution agents",
           "items": [
-            "Trigger downstream workflows based on decision outcomes",
-            "Handle cross-team, cross-system task handoffs without human relay"
+            "Translate approved decisions into downstream actions across systems: trigger purchase orders, update schedules, notify teams, adjust parameters",
+            "Handle the cross-system, cross-team handoffs that currently depend on someone remembering to send an email",
+            "Close the loop between decision and action without human relay"
           ]
         }
       ],
       "links": [
         {
           "title": "What we deploy",
-          "body": "Full service layers from operational diagnosis to agent deployment.",
+          "body": "Three service layers from operational diagnosis through agent deployment to team enablement.",
           "cta": "View Services"
         },
         {
           "title": "The thinking behind it",
-          "body": "Coordination theory, agent architecture, and technical papers on industrial use cases.",
+          "body": "Coordination theory, agent architecture patterns, industrial deployment case analysis, and technical deep dives.",
           "cta": "Browse Resources"
         },
         {
           "title": "The firm",
-          "body": "Why we exist, how we think, what work we turn down.",
+          "body": "Who we are, how we work, and why we only take on operations complex enough to need this.",
           "cta": "Learn More"
         }
       ]
@@ -94,63 +98,64 @@
       "steps": [
         {
           "title": "Operational Review",
-          "body": "Deep-dive into core business workflows, audit cross-departmental coordination patterns, quantify coordination costs, and identify where agent systems create the most leverage. Deliverable: a pilot proposal with prioritized opportunities, ROI projections, and a draft technical architecture."
+          "body": "We map the full coordination topology of your operation: every handoff between systems, every manual relay between departments, every report compiled by hand, every approval chain and the information assembly cost at each step. We quantify the coordination tax in hours, latency, and error rates. The deliverable is a pilot proposal with prioritized intervention points, projected ROI for each, and a draft technical architecture showing exactly which agent types integrate with which systems."
         },
         {
           "title": "Agent Design & Build",
-          "body": "Design multi-agent coordination architecture, build integration layers with existing systems (ERP, MES, WMS, OA, messaging), and develop agent workflows for signal aggregation, decision routing, and execution triggering. All iteratively tested against real operational data."
+          "body": "We design the multi-agent coordination architecture: which agents handle signal aggregation, which handle decision routing, which handle execution triggering, and how they communicate with each other. We build integration layers with your existing systems, including ERP, MES, WMS, OA platforms, and messaging tools. Every workflow is iteratively tested against your real operational data, not synthetic demos. We build until it works on your actual edge cases."
         },
         {
           "title": "Pilot Deployment & Handoff",
-          "body": "Deploy into your live environment, validate with real operational data, and train your operations team to supervise and extend the agent system. What we hand off is a production-grade running system with full operations documentation — not a slide deck."
+          "body": "We deploy into your live production environment, run the agent system alongside existing workflows, validate with real operational data under real conditions, and train your operations team to supervise, tune, and extend the system. What we hand off is a production-grade running system with complete operations documentation, monitoring dashboards, escalation protocols, and the knowledge transfer to make your team self-sufficient. Not a slide deck. Not a proof of concept. A system that runs."
         }
       ]
     },
     "industrial": {
-      "label": "Built for industry",
-      "title": "Manufacturing, logistics, energy — operations complex enough to need agents",
-      "statement": "We only work where the coordination problem is structural",
-      "body": "Simple businesses don't need agent systems. We work with a different kind of enterprise: dozens of teams, multiple facilities, five-plus layers of approval chains, over a dozen systems running in parallel. At that complexity, coordination itself is a massive hidden cost. No project management tool solves it. More headcount doesn't solve it. What's needed is an architectural change.",
+      "label": "Built for industrial complexity",
+      "title": "Manufacturing, logistics, energy\nOperations complex enough to need a coordination layer",
+      "statement": "Simple businesses don't need agent systems. We work where the coordination problem is structural.",
+      "body": "We work with a specific kind of operation: dozens of teams across multiple facilities, five or more layers of approval authority, over a dozen enterprise systems running in parallel, thousands of daily handoffs between departments that each operate on different data, different timelines, and different priorities. At that scale, coordination isn't a management problem. It's an infrastructure problem. No project management tool solves it. No amount of additional headcount solves it. It requires the same kind of architectural intervention that mechanization brought to manual labor and that ERP brought to paper-based record keeping. Agent systems are that intervention for the coordination layer.",
       "outcomes": [
         {
           "title": "Management hours reclaimed",
-          "body": "Managers and engineers take back the time currently consumed by status compilation, approval chasing, and cross-system data gathering. Typical scenario: 8-15 hours saved per person per week."
+          "body": "Managers and engineers take back the 8 to 15 hours per person per week currently consumed by status compilation, approval chasing, cross-system data gathering, and information relay. That time returns to the work they were hired to do: solving problems, making decisions, improving operations."
         },
         {
           "title": "Real-time operational visibility",
-          "body": "Agent systems continuously aggregate state across tools, replacing the weekly report cycle with a live operational picture. Problems are visible when they happen, not when they're reviewed."
+          "body": "Agent systems continuously aggregate state across every connected system, replacing the weekly report cycle with a live operational picture that updates itself. Problems surface when they happen, not when someone compiles a report three days later."
         },
         {
           "title": "Compressed decision cycles",
-          "body": "Agents pre-assemble context, flag exceptions, and route to the right person. Approvals that took three to five days now close the same day."
+          "body": "When agents pre-assemble every piece of context a decision requires and route it to the right person automatically, approvals that took three to five days close the same day. Not because the decision is faster. Because the information assembly that preceded it no longer exists."
         }
       ]
     },
     "institution": {
       "label": "Why us",
-      "title": "Systems thinking plus real delivery capability",
+      "title": "The engineering to build it and the operations experience to know what to build",
       "authority": {
-        "subtitle": "Not just consultants — we ship working systems",
-        "body": "Most AI consultancies deliver recommendation decks and roadmaps. We deliver agent systems running in our clients' production environments. Our team combines industrial operations experience with AI engineering capability — we understand why a procurement approval stalls on cross-system data fragmentation, and we know how to use LLM orchestration and tool-use protocols to automate the entire workflow."
+        "subtitle": "We deliver running systems, not recommendation decks.",
+        "body": "Most AI consultancies produce strategic assessments, roadmap documents, and vendor evaluations. We produce agent systems running in production environments. Our team combines deep industrial operations experience with AI systems engineering capability. We understand the operational reality: why a procurement approval stalls for days on cross-system data fragmentation, why a plant manager spends two hours every morning assembling a report the systems already contain, why the gap between ERP and the shop floor is filled by people instead of software. And we know how to build the agent architectures, the LLM orchestration pipelines, and the system integration layers that close those gaps permanently."
       },
       "resources": [
         {
           "title": "Open frameworks",
-          "body": "Diagnostic models and deployment frameworks we use internally, published openly. Transparent methodology — we don't sell information asymmetry."
+          "body": "The diagnostic models, deployment frameworks, and architectural patterns we use on client engagements are published openly. Our methodology is transparent. We don't create value by hoarding information. We create value by building systems that work."
         },
         {
           "title": "Published thinking",
-          "body": "Coordination theory, agent architecture design, and why most enterprise AI projects never reach production. Our reasoning is public and available for evaluation before engagement."
+          "body": "Coordination theory, agent architecture design, industrial deployment analysis, and honest assessments of why most enterprise AI projects never reach production. Our reasoning is public and available for evaluation before any engagement begins."
         },
         {
           "title": "Technical depth",
-          "body": "LLM orchestration, tool-use protocols (Function Calling, MCP), multi-agent coordination patterns. Open architecture. No black boxes, no lock-in."
+          "body": "LLM orchestration, tool-use protocols including Function Calling and Model Context Protocol, multi-agent coordination patterns, enterprise system integration architecture. Everything we build is open architecture. No black boxes, no proprietary lock-in, full client ownership."
         }
       ]
     },
     "philosophy": {
       "label": "Why the name",
-      "text": "Laziness — the refusal to repeat meaningless work — is an instinct for better systems. Every agent we build starts from the same judgment: a human shouldn't have to do this."
+      "name": "Principle of Procrastination",
+      "text": "Every industrial revolution started with the same instinct: this work shouldn't require a human. The power loom, the assembly line, the programmable controller. Each one emerged because someone refused to accept that a repetitive task was simply the cost of production. That refusal is what we call laziness. It is the most productive instinct in engineering. Every agent system we build starts from the same judgment: this coordination task, this information relay, this manual assembly of context that a machine could do in seconds, should not require a person. The principle of procrastination is the principle that built modern industry. We're applying it to the layer that modern industry forgot."
     },
     "closing": {
       "label": "Next step",
@@ -158,17 +163,17 @@
       "paths": [
         {
           "title": "Book an Operational Review",
-          "body": "For enterprises ready to identify coordination bottlenecks, quantify coordination costs, and scope an agent pilot.",
+          "body": "For enterprises ready to map their coordination topology, quantify the cost of manual information relay, and identify where agent systems create the most leverage. This is where every engagement begins.",
           "cta": "Start here"
         },
         {
           "title": "Read the Thesis First",
-          "body": "For leaders who want to understand the logic and architectural thinking before discussing implementation.",
+          "body": "For leaders and technical teams who want to understand the architectural logic, the coordination theory, and the deployment patterns before discussing implementation. Our full thinking is published and open.",
           "cta": "Explore resources"
         },
         {
           "title": "Talk to Us Directly",
-          "body": "For operators, partners, or technical teams exploring what agentic automation could do in your specific scenario.",
+          "body": "For operators, engineering teams, or partners who have a specific scenario in mind and want to discuss whether agentic automation fits. No pitch, just a conversation about your operation.",
           "cta": "Start a conversation"
         }
       ]
@@ -180,39 +185,39 @@
     "deliverableLabel": "Deliverable",
     "totalTimeline": "weeks, diagnosis to production",
     "eyebrow": "Services",
-    "title": "Three layers: from coordination diagnosis to agents in production",
-    "intro": "We work in layers. Diagnose coordination bottlenecks, design agent architecture, build and deploy into your environment, train your team to operate and extend. Each layer has clear deliverables and acceptance criteria.",
+    "title": "Three layers. Diagnosis, construction, deployment.",
+    "intro": "We work in layers, each with clear deliverables and acceptance criteria. We diagnose the coordination bottlenecks in your operation, design and build the agent architecture that addresses them, deploy into your production environment, and transfer full ownership and operational capability to your team. The engagement ends when your team runs the system without us.",
     "cards": [
       {
         "title": "Operational Review",
-        "scope": "Find the leverage points",
-        "body": "Map core business workflows, audit cross-departmental coordination patterns, assess system integration landscape, and quantify coordination costs.",
-        "method": "Full-chain audit across ERP, MES, WMS, and OA. Cross-department information flow tracing. Management time-cost sampling.",
-        "deliverable": "Pilot proposal: prioritized bottlenecks · ROI projections · draft technical architecture",
-        "timeline": "2–4 weeks"
+        "scope": "Map the coordination topology",
+        "body": "Full audit of your operation's coordination layer. We trace every cross-departmental information flow, identify every manual handoff between systems, quantify the time cost of status compilation and approval routing, and map the gap between what your enterprise systems know and what your people spend their time assembling by hand.",
+        "method": "On-site observation and workflow tracing across ERP, MES, WMS, OA, and messaging platforms. Cross-department information flow mapping. Management time-cost sampling with hour-level granularity. System integration landscape assessment.",
+        "deliverable": "Pilot proposal with prioritized coordination bottlenecks ranked by cost and feasibility, projected ROI for each intervention point, and a draft technical architecture specifying agent types, integration points, and data flows",
+        "timeline": "2 to 4 weeks"
       },
       {
         "title": "Agent Design & Implementation",
-        "scope": "Turn the architecture into a system",
-        "body": "Design multi-agent coordination architecture, build integration layers with existing systems, develop agent workflows with automated testing.",
-        "method": "LLM orchestration and prompt engineering. Enterprise system integration (ERP, MES, WMS, databases, OA, messaging). Iterative validation against real operational data.",
-        "deliverable": "Working agent system: signal aggregation · decision routing · execution triggering",
-        "timeline": "6–10 weeks"
+        "scope": "Build the coordination layer",
+        "body": "Design and construct the multi-agent coordination architecture. We build the signal aggregation agents that replace manual report compilation, the decision routing agents that pre-assemble context and direct approvals, and the execution agents that translate decisions into downstream system actions. Every integration is built against your real systems with your real data.",
+        "method": "LLM orchestration and prompt engineering for production reliability. Enterprise system integration with ERP, MES, WMS, databases, OA platforms, and messaging tools. Multi-agent coordination design with defined communication protocols. Iterative validation against live operational data with measured accuracy targets.",
+        "deliverable": "Working agent system in staging environment, validated against real operational workflows, with documented accuracy metrics and edge case handling",
+        "timeline": "6 to 10 weeks"
       },
       {
         "title": "Deployment & Enablement",
-        "scope": "Hand it to your team",
-        "body": "Staged production rollout, operations team training, supervision protocols and escalation mechanisms, full system ownership transfer.",
-        "method": "Phased production deployment. Operator certification. Governance frameworks and operations documentation.",
-        "deliverable": "Production-grade running system + full operational capability: after we leave, your team runs it",
-        "timeline": "2–4 weeks"
+        "scope": "Transfer to your team",
+        "body": "Staged rollout into your production environment with parallel operation alongside existing workflows. We train your operations team on agent supervision, exception handling, and system extension. We build the monitoring dashboards, write the escalation protocols, and transfer complete operational knowledge. The engagement ends when your team operates and extends the system independently.",
+        "method": "Phased production deployment with rollback capabilities. Operator certification program. Governance framework design. Complete operations documentation including runbooks, troubleshooting guides, and architecture documentation.",
+        "deliverable": "Production-grade running system with full operational capability, monitoring infrastructure, and a trained team. After we leave, your team runs it.",
+        "timeline": "2 to 4 weeks"
       }
     ]
   },
   "resources": {
     "eyebrow": "Resources",
-    "title": "Understanding AI, from research to reality",
-    "intro": "A bilingual publication. Paper breakdowns, tool reviews, management science, field dispatches, and explainers. For professionals and curious minds navigating the AI transition.",
+    "title": "The architecture of coordination, from theory to production",
+    "intro": "A bilingual research publication. We write about coordination theory, agent system architecture, industrial deployment patterns, AI policy, and the gap between what the industry promises and what actually works in production. For operators, engineers, and leaders navigating what agent systems mean for industrial operations.",
     "filterAll": "All",
     "filterEssay": "Essays",
     "filterFramework": "Frameworks",
@@ -224,35 +229,35 @@
     "columns": {
       "papers": {
         "title": "Paper Trail",
-        "description": "Breakdowns of important AI research. What the papers actually found, why it matters, and the gap between research and reality."
+        "description": "Breakdowns of foundational AI research. What the papers actually found, what they missed, why it matters for practitioners, and the distance between the research result and a production system."
       },
       "tools": {
         "title": "Tool Bench",
-        "description": "Honest reviews of AI tools, frameworks, and platforms. What works, what doesn't, what's hype."
+        "description": "Engineering-grade reviews of AI tools, frameworks, and platforms. Not feature lists. Honest assessments of what works in production, what breaks under load, and what's marketing."
       },
       "management": {
         "title": "The Org Layer",
-        "description": "Management science meets AI. How it changes decision-making, org design, and coordination."
+        "description": "Where management science meets agent systems. How coordination theory, organizational design, and decision architecture change when agents handle the information layer."
       },
       "field": {
         "title": "Field Notes",
-        "description": "Dispatches from real deployments. What actually happens when AI enters factories and offices."
+        "description": "Dispatches from real deployments in real operations. What actually happens when agent systems enter factories and enterprise environments. The problems that don't appear in demos."
       },
       "fundamentals": {
         "title": "From Scratch",
-        "description": "AI explained for smart people who aren't engineers. No jargon gatekeeping."
+        "description": "AI and agent systems explained for experienced professionals who aren't engineers. No jargon gatekeeping. No dumbing down. Clear explanations of what the technology does and what it doesn't."
       },
       "china": {
         "title": "China Desk",
-        "description": "AI developments, policy, and industry moves specific to China. From inside the ecosystem."
+        "description": "AI developments, industrial policy, and enterprise technology moves specific to China. Written from inside the ecosystem for an international audience."
       },
       "us": {
         "title": "US Desk",
-        "description": "Silicon Valley, DC, and the factory floor. AI industry, regulation, and enterprise adoption in the US."
+        "description": "AI industry dynamics, federal and state regulation, and enterprise adoption patterns in the United States. Silicon Valley, Washington, and the factory floor."
       },
       "policy": {
         "title": "Signal & Noise",
-        "description": "AI policy, regulation, and macro trends. Separating signal from noise."
+        "description": "AI policy, regulation, trade dynamics, and macro trends. Separating what matters from what doesn't."
       }
     },
     "items": [
@@ -491,8 +496,8 @@
   },
   "academy": {
     "eyebrow": "Academy",
-    "title": "Teaching teams to work alongside AI agents",
-    "intro": "Agent systems don't replace your team — they change what your team does. Academy builds the real capability your organization needs: supervising agents, calibrating trust, extending agent workflows, and knowing when to intervene.",
+    "title": "Building the team that operates alongside agents",
+    "intro": "Agent systems change what your team does. The reports they used to compile are now automated. The approvals they used to chase are now routed. The data they used to assemble is now aggregated. What remains is the work that actually requires human judgment: supervising agent output, handling exceptions, calibrating trust, extending workflows, and making the decisions that agents surface but cannot make. Academy builds that capability.",
     "cta": "Inquire About Training",
     "enrollLabel": "Enrollment",
     "enrollOptions": "Custom scheduling available for enterprise teams",
@@ -504,7 +509,7 @@
         "title": "Operator Training",
         "audience": "Frontline operators and team leads",
         "duration": "2 days on-site + 4 weeks remote support",
-        "description": "Practical skills for people who work alongside agent systems every day. How to supervise agent execution, evaluate output quality, handle exceptions, and provide feedback that makes the system better over time.",
+        "description": "Practical skills for the people who work alongside agent systems on the factory floor and in operations centers every day. How to read agent output, evaluate whether it's correct, recognize when the system has hit the edge of its capability, handle exceptions effectively, and provide the structured feedback that makes the system improve over time.",
         "modules": [
           {
             "title": "Agent System Fundamentals",
@@ -533,7 +538,7 @@
         "title": "Management Programs",
         "audience": "Operations directors, department heads, and senior managers",
         "duration": "1 day intensive + 6 weeks advisory",
-        "description": "For the people who set policy, allocate resources, and manage the organizational change that agent systems introduce. Not a technical course — a leadership course on governing AI systems in production operations.",
+        "description": "For the people who set policy, allocate resources, and manage the organizational change that agent systems introduce. Not a technical course. A leadership course on governing autonomous systems in production operations, setting appropriate supervision levels, and managing the transition in team roles and responsibilities.",
         "modules": [
           {
             "title": "Agent Systems: Capability & Limits",
@@ -562,7 +567,7 @@
         "title": "Technical Foundations",
         "audience": "Software engineers, systems architects, and technical leads",
         "duration": "3 days intensive + 8 weeks project mentorship",
-        "description": "For engineering teams building or extending agent systems. Covers the full stack from LLM orchestration to production deployment. Not a lecture — participants build and deploy a working agent subsystem during the program.",
+        "description": "For engineering teams building or extending agent systems in industrial environments. Covers the full stack from LLM orchestration and prompt engineering through multi-agent coordination architecture to production deployment and operations. Not a lecture series. Participants design, build, and deploy a working agent subsystem during the program using their own operational data.",
         "modules": [
           {
             "title": "LLM Orchestration & Prompt Engineering",
@@ -592,80 +597,80 @@
     "status": "Case studies in development",
     "eyebrow": "Case Studies",
     "title": "What changes when agents take over the coordination layer",
-    "intro": "Each case covers three things: the original constraint, the agent system we deployed, and the measurable improvement. No packaged stories — just structure and data.",
+    "intro": "Each case documents three things: the coordination constraint as it existed before intervention, the agent system architecture we designed and deployed, and the measured operational improvement with specific metrics. No narratives. Structure and data.",
     "cards": [
       {
         "title": "Before: the constraint",
-        "body": "What coordination burden was consuming time, creating delays, driving up labor costs, or trapping your best people in low-value synchronization work they couldn't escape."
+        "body": "The specific coordination burden: what information was being manually assembled, what handoffs were consuming management time, what decisions were delayed by context fragmentation, and what the quantified cost was in hours, latency, and error rates."
       },
       {
         "title": "The agent system",
-        "body": "What architecture we built, which systems we integrated, how the workflows were designed, how agents coordinate with each other, and how the system embeds into existing operations without creating new complexity."
+        "body": "The architecture: which agent types were deployed, which enterprise systems they integrate with, how signal aggregation, decision routing, and execution triggering are structured, and how the system embeds into the existing operational workflow without introducing new complexity."
       },
       {
-        "title": "After: the new capability",
-        "body": "Measurable results. Management hours reclaimed, decision cycles shortened, errors from information fragmentation reduced, operational visibility gained that wasn't previously possible."
+        "title": "After: the measured improvement",
+        "body": "Quantified results. Management hours reclaimed per person per week. Decision cycle compression measured in days reduced. Error reduction from eliminating manual information relay. Operational visibility capabilities that did not previously exist."
       }
     ]
   },
   "about": {
     "eyebrow": "About",
-    "title": "Unnecessary work shouldn't be done by humans — and now the technology can handle it",
-    "intro": "Principle of Procrastination is an agentic automation firm. We diagnose coordination problems for industrial enterprises and build the AI agent systems that solve them. From diagnosis to production, full delivery.",
+    "title": "The coordination layer was the last manual layer in modern industry. We're automating it.",
+    "intro": "Principle of Procrastination is an agentic automation firm. We work exclusively with industrial enterprises, the operations complex enough that coordination itself has become a structural cost. We diagnose where that cost accumulates, design the agent architectures that address it, build and deploy the systems, and transfer full ownership and capability to our clients' teams.",
     "manifesto": {
       "label": "Why we exist",
-      "text": "Refusing to repeat pointless work isn't laziness — it's an instinct for better systems. Every coordination meeting that exists because data doesn't flow between systems. Every status report hand-compiled from three tools. Every approval stuck for three days because context is missing. These aren't management failures — they're architectural defects in coordination. And agent systems can now fix them."
+      "text": "Every era of industrial progress has been driven by the same recognition: this work does not require a human. The power loom. The assembly line. The programmable logic controller. The enterprise resource planning system. Each one automated a layer of industrial operations that had previously required human labor, human attention, or human memory. But one layer was left untouched. The coordination layer, the work of moving information between systems, assembling context for decisions, routing approvals, compiling reports, and relaying execution instructions across teams, has remained manual in even the most automated operations on earth. Not because the technology wasn't ready. Because nobody framed it as an engineering problem. We do. Agent systems are the architectural intervention that brings the coordination layer into the same automated infrastructure as every other layer of modern industrial operations."
     },
     "cards": [
       {
         "title": "Open by default",
-        "body": "Diagnostic frameworks published openly, systems built on open architecture, full ownership transferred to the client after handoff. No vendor lock-in, no black-box delivery. Clients should be able to run and extend the system without us."
+        "body": "Diagnostic frameworks published openly. Systems built on open architecture. Full source code and operational ownership transferred to the client after every engagement. No vendor lock-in, no proprietary dependencies, no black-box delivery. Our clients run and extend their systems without us. That's the design intent."
       },
       {
         "title": "Protect human judgment",
-        "body": "Agents handle coordination, data synthesis, and workflow routing. Humans handle creative decisions, client relationships, exception handling, and the work that genuinely requires experience and judgment. The principle is simple: repetitive work goes to agents, thinking goes to humans."
+        "body": "Agents handle coordination: data aggregation, context assembly, workflow routing, information relay, and system-to-system handoffs. Humans handle what requires judgment: interpreting ambiguous situations, managing relationships, making strategic decisions, handling novel exceptions, and the creative problem-solving that no model can replicate. Repetitive coordination work goes to agents. Thinking stays with humans."
       },
       {
         "title": "We build what we recommend",
-        "body": "Not a slide-deck firm. We design agent architectures, write code, and deploy to production. If we suggest it, we can build it. That's the fundamental difference between us and most consultancies."
+        "body": "We design agent architectures, write production code, build system integrations, and deploy into live environments. If we recommend an approach, we can build it. If we can't build it, we don't recommend it. That's the line between an automation engineering firm and a consultancy."
       }
     ],
     "offices": {
       "label": "Where we are",
-      "description": "Two teams, two continents. We work across US and Chinese enterprise ecosystems because the coordination problems — and the agent architectures that solve them — are universal. The implementation details are not.",
+      "description": "Two teams, two continents. We operate across both American and Chinese industrial ecosystems because the coordination problems are universal but the implementation environments are fundamentally different. Different enterprise software stacks, different communication platforms, different approval cultures, different integration architectures. Building for both requires presence in both.",
       "locations": [
         {
           "city": "California",
           "country": "United States",
-          "role": "Research and engineering. AI architecture, LLM orchestration, agent framework development. Embedded in the Silicon Valley ecosystem — close to model providers, open-source communities, and the frontier of agent tooling.",
+          "role": "Research and engineering. AI architecture, LLM orchestration, agent framework development, and coordination theory research. Located in the Silicon Valley ecosystem with direct access to foundation model providers, open-source AI communities, and the frontier of agent tooling development.",
           "flag": "🇺🇸"
         },
         {
-          "city": "Shenzhen",
+          "city": "Guangdong",
           "country": "China",
-          "role": "Engineering, sales, and consulting. Enterprise system integration, on-site deployment, client operations. The team that turns architecture into running systems on factory floors.",
+          "role": "Engineering, sales, and consulting. Enterprise system integration, on-site deployment, and client operations. The team that turns agent architectures into running systems on factory floors, integrated with domestic enterprise platforms and embedded in the operational reality of Chinese manufacturing.",
           "flag": "🇨🇳"
         }
       ],
-      "note": "This dual presence isn't a sales footprint — it's an engineering requirement. Agent systems that work in American enterprise environments need different integration patterns than those built for Chinese industrial ecosystems. We build both."
+      "note": "This dual presence is an engineering requirement, not a sales footprint. Agent systems that integrate with American enterprise environments require fundamentally different system integration patterns, communication platform hooks, and deployment architectures than those built for Chinese industrial ecosystems. We build for both because our clients operate in both."
     }
   },
   "contact": {
     "eyebrow": "Contact",
-    "title": "Let's talk about what agents could do for your operations",
-    "intro": "Whether you want a full operational review, a technical discussion about agent architecture, or just to understand if this approach fits your situation — start here.",
+    "title": "Let's talk about what the coordination layer looks like in your operation",
+    "intro": "Whether you're ready for a full operational review, exploring whether agent systems fit your specific coordination challenges, looking for a technical architecture discussion, or evaluating training programs for your team, this is where to start. No pitch. A conversation about your operation.",
     "cards": [
       {
         "title": "Technical partnership",
-        "body": "Teams evaluating agent architectures, system integration approaches, or co-development opportunities."
+        "body": "Engineering teams evaluating agent architectures, multi-agent coordination patterns, system integration approaches, or co-development opportunities for industrial agent systems."
       },
       {
         "title": "Operational review",
-        "body": "Enterprises exploring coordination bottlenecks, evaluating agent pilot feasibility, or discussing workflow automation approaches."
+        "body": "Enterprises ready to map their coordination topology, quantify the cost of manual information relay, and identify where agent systems would create the most operational leverage."
       },
       {
-        "title": "Learning & resources",
-        "body": "Operators, engineers, and leaders seeking training programs, diagnostic frameworks, or technical papers."
+        "title": "Learning and resources",
+        "body": "Operators, engineers, and leaders looking for training programs, diagnostic frameworks, technical papers, or access to our published research on coordination theory and agent architecture."
       }
     ],
     "form": {
@@ -681,7 +686,39 @@
       ],
       "message": "Message",
       "submit": "Send inquiry",
-      "success": "Received. We'll get back to you within 2 business days."
+      "success": "Received. We'll be in touch within two business days."
+    }
+  },
+  "careers": {
+    "eyebrow": "Join us",
+    "title": "Build the coordination layer",
+    "intro": "We are a small, focused team building agent systems for industrial operations. Every person here works directly on the problem. No middle management, no feature factories. If you want to build systems that replace manual coordination at the scale of global manufacturing, logistics, and energy operations, this is the place.",
+    "roles": {
+      "label": "Where we need people",
+      "items": [
+        {
+          "title": "Agent Engineers",
+          "body": "Design and deploy multi-agent coordination systems. You build the signal aggregation, decision routing, and execution layers that replace manual operational workflows. Python, LLM orchestration, enterprise system integration."
+        },
+        {
+          "title": "Operations Consultants",
+          "body": "Map coordination topologies inside client organizations. You diagnose where manual information relay costs the most, design the agent architecture to replace it, and manage the deployment. Deep enterprise operations experience required."
+        },
+        {
+          "title": "Research",
+          "body": "Publish original analysis on coordination economics, automation gaps, and agent system design patterns. You produce the intellectual foundation that guides everything we build. Background in industrial engineering, operations research, or organizational design."
+        }
+      ]
+    },
+    "apply": {
+      "label": "Apply",
+      "title": "Send us your resume",
+      "body": "No formal job postings. If the work described above matches what you want to build, reach out. Include a note about which area interests you and why.",
+      "name": "Your name",
+      "email": "Email address",
+      "message": "What interests you about this work",
+      "resume": "Submit your resume",
+      "submit": "Send application"
     }
   }
 }

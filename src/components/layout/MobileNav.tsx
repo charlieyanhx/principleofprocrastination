@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/academy", key: "academy" },
   { href: "/case-studies", key: "caseStudies" },
   { href: "/about", key: "about" },
+  { href: "/careers", key: "careers" },
   { href: "/contact", key: "contact" },
 ] as const;
 

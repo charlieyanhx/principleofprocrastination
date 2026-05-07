@@ -11,12 +11,24 @@
   --color-surface-dark: #0a0a0a;
   --color-surface-dark-muted: #a3a3a3;
 
-  --font-sans: "Inter", "Noto Sans SC", system-ui, -apple-system, sans-serif;
-  --font-serif: "Songti SC", "Noto Serif SC", Georgia, serif;
+  --font-sans: "Inter", "Noto Sans SC", sans-serif;
+  --font-serif: "Songti SC", "Noto Serif SC", serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
 }
 
 body {
@@ -25,7 +37,26 @@ body {
   color: var(--color-foreground);
 }
 
+/* Spacing scale — 4px base grid for consistency */
+:root {
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+  --spacing-32: 128px;
+}
+
 ::selection {
   background-color: var(--color-accent);
   color: white;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }

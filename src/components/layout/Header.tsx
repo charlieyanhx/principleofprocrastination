@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/academy", key: "academy" },
   { href: "/case-studies", key: "caseStudies" },
   { href: "/about", key: "about" },
+  { href: "/careers", key: "careers" },
   { href: "/contact", key: "contact" },
 ] as const;
 
@@ -36,18 +37,17 @@ export function Header() {
               alt="Logo"
               width={140}
               height={40}
-              className="h-auto w-[140px]"
               priority
             />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-5">
             {navLinks.map((link) => (
               <Link
                 key={link.key}
                 href={link.href}
-                className="text-sm tracking-wide text-[#737373] hover:text-[#0a0a0a] transition"
+                className="text-xs tracking-wide text-[#737373] hover:text-[#0a0a0a] transition"
               >
                 {t(link.key)}
               </Link>
@@ -59,7 +59,7 @@ export function Header() {
             <LangSwitch />
             <Link
               href="/contact"
-              className="bg-[#0a0a0a] text-[#fafafa] px-5 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition"
+              className="bg-[#0a0a0a] text-[#fafafa] px-4 py-1.5 rounded-lg text-xs font-medium hover:opacity-90 transition"
             >
               {t("cta")}
             </Link>
@@ -68,7 +68,7 @@ export function Header() {
           {/* Hamburger */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="lg:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10"
+            className="lg:hidden flex flex-col justify-center items-center gap-2 w-10 h-10"
             aria-label="Open menu"
           >
             <span className="block w-5 h-px bg-[#0a0a0a]" />
